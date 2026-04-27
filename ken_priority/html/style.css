@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Share+Tech+Mono&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: transparent;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 30px;
+  pointer-events: none;
+}
+
+#app {
+  pointer-events: auto;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+#app.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
+/* ── Main wrapper: single horizontal row ── */
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Thin vertical divider between police & sheriff */
+.group-divider {
+  width: 1px;
+  height: 18px;
+  background: rgba(255,255,255,0.10);
+  flex-shrink: 0;
+}
+
+/* Each group: label | dot | status | sep | cd-label | cd-value */
+.group-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Group labels */
+.group-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.police-label  { color: #60a5fa; }
+.sheriff-label { color: #fbbf24; }
+
+/* Status dot */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background 0.4s, box-shadow 0.4s;
+}
+
+.dot.hold     { background: #f0c040; box-shadow: 0 0 6px #f0c040; }
+.dot.progress { background: #ff6600; box-shadow: 0 0 8px #ff6600; animation: blink 1s infinite; }
+.dot.safe     { background: #00ff88; box-shadow: 0 0 6px #00ff88; }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* Status text */
+.status-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  transition: color 0.4s, text-shadow 0.4s;
+  white-space: nowrap;
+}
+
+.status-text.hold     { color: #f0c040; text-shadow: 0 0 8px #f0c04066; }
+.status-text.progress { color: #ff6600; text-shadow: 0 0 8px #ff660066; }
+.status-text.safe     { color: #00ff88; text-shadow: 0 0 8px #00ff8866; }
+
+/* Separator */
+.sep {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: #2a3a4a;
+  flex-shrink: 0;
+}
+
+/* Cooldown */
+.cd-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: #4a6a8a;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.cd-value {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: #c8d8e8;
+  text-shadow: 0 0 6px #c8d8e844;
+  white-space: nowrap;
+}
+
+/* Info row (optional bottom text) */
+.info-row {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
