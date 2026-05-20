@@ -3,7 +3,7 @@ fx_version 'cerulean'
 game 'gta5'
 
 author 'Ken Mondragon'
-description 'Priority Cooldown System'
+description 'Priority Cooldown System | https://discord.gg/saNy47Db2y'
 version '1.0.0'
 
 dependencies {
